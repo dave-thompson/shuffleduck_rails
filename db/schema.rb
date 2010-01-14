@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100111113203) do
+ActiveRecord::Schema.define(:version => 20100114161015) do
 
   create_table "deck_details", :force => true do |t|
     t.integer  "deck_id"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20100111113203) do
   end
 
   create_table "decks", :force => true do |t|
-    t.integer  "creator_account_id"
+    t.integer  "owner_account_id"
     t.string   "user_visible_id"
     t.string   "title"
     t.string   "cover_xml_string"
