@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  creator_account_id: 1
+  user_visible_id: MyString
+  title: MyString
+  xml_string: MyString
+  cover_xml_string: MyString
+  last_saved_date: 2010-01-07 04:54:40
+
+two:
+  creator_account_id: 1
+  user_visible_id: MyString
+  title: MyString
+  xml_string: MyString
+  cover_xml_string: MyString
+  last_saved_date: 2010-01-07 04:54:40

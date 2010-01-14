@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  deck_id: 1
+  xml_string: MyString
+
+two:
+  deck_id: 1
+  xml_string: MyString
