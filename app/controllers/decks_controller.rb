@@ -30,7 +30,7 @@ class DecksController < ApplicationController
       # we store the server time as the last_saved_date; it's up to the client to work out what this is in user time
       # (to facilitate this, rails must send the user the current timestamp with each response - TO IMPLEMENT)
       @deck.last_saved_date = Time.now
-      @deck.creator_account_id = 1
+      @deck.owner_account_id = 1
 
       # derive redundant fields
       doc  = Nokogiri::XML(@deck.deck_detail.xml_string)

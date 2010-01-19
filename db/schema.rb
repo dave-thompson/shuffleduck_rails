@@ -9,24 +9,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100114161015) do
+ActiveRecord::Schema.define(:version => 20100118182723) do
 
   create_table "deck_details", :force => true do |t|
     t.integer  "deck_id"
-    t.string   "xml_string"
+    t.text     "xml_string", :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "decks", :force => true do |t|
     t.integer  "owner_account_id"
-    t.string   "user_visible_id"
+    t.integer  "user_visible_id",  :limit => 255
     t.string   "title"
-    t.string   "cover_xml_string"
+    t.text     "cover_xml_string", :limit => 255
     t.datetime "last_saved_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "num_cards"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
