@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100118182723) do
+ActiveRecord::Schema.define(:version => 20100122010544) do
 
   create_table "deck_details", :force => true do |t|
     t.integer  "deck_id"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20100118182723) do
   end
 
   create_table "decks", :force => true do |t|
-    t.integer  "owner_account_id"
+    t.integer  "user_id"
     t.integer  "user_visible_id",  :limit => 255
     t.string   "title"
     t.text     "cover_xml_string", :limit => 255
@@ -30,13 +30,26 @@ ActiveRecord::Schema.define(:version => 20100118182723) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "persistence_token"
+    t.string   "email",                             :null => false
+    t.integer  "age_at_signup",                     :null => false
+    t.string   "gender",                            :null => false
+    t.string   "username",                          :null => false
+    t.string   "crypted_password",                  :null => false
+    t.string   "password_salt",                     :null => false
+    t.string   "persistence_token",                 :null => false
+    t.string   "perishable_token"
+    t.integer  "login_count",        :default => 0, :null => false
+    t.integer  "failed_login_count"
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
+  add_index "users", ["username"], :name => "index_users_on_username"
 
 end

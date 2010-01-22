@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.resources :users
+  map.resource :user_session
 
   map.resources :decks do |deck|
     deck.resources :deck_details
