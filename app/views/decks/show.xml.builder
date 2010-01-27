@@ -1,4 +1,4 @@
-xml.mindegg_error do
+xml.deck do
   xml.timestamp(Time.now)
   xml.title(@deck[:title])
   xml.author(@author)
