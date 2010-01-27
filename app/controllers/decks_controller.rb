@@ -16,7 +16,9 @@ class DecksController < ApplicationController
   def show
     @deck = Deck.find(:first, :conditions => ["user_visible_id = ?", params[:id]])
     if @deck
-      render :xml => @deck.to_xml(:dasherize => false)
+      @author = @deck.user.username
+      #render :xml => @deck.to_xml(:dasherize => false)
+      render :template =>'decks/show.xml.builder'
     else
       @error = {:description => "Couldn't find deck with Deck ID #{params[:id]}."}
       render :template => 'errors/show.xml.builder'
