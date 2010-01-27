@@ -30,7 +30,7 @@ protected
   end
   
   def get_deck
-    @deck = current_user.decks.find(:first, :conditions => ["user_visible_id = ?", params[:deck_id]]) # the id supplied in the URL is not actually a deck_id, it is really a user_visible_id    
+    @deck = Deck.find(:first, :conditions => ["user_visible_id = ?", params[:deck_id]]) # the id supplied in the URL is not actually a deck_id, it is really a user_visible_id    
   end
 
 end
