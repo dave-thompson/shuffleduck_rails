@@ -4,10 +4,10 @@ class DecksController < ApplicationController
   def index
     if current_user
       @decks = current_user.decks.find(:all, :order => "last_saved_date DESC")
-      render :xml => @decks.to_xml(:dasherize=>false)
+      render :template =>'decks/index.xml.builder'
     else
       @error = {:logon_succeeded => false, :description => "Couldn't log you in. Please check your username and password."}
-      render :template => 'errors/show.xml.builder'
+      render :template => 'errors/error.xml.builder'
     end      
   end
 
@@ -20,7 +20,7 @@ class DecksController < ApplicationController
       render :template =>'decks/show.xml.builder'
     else
       @error = {:description => "Couldn't find deck with Deck ID #{params[:id]}."}
-      render :template => 'errors/show.xml.builder'
+      render :template => 'errors/error.xml.builder'
     end
   end
   
