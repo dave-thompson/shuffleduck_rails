@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
   acts_as_authentic do |c|
     c.require_password_confirmation = false
-    c.validates_format_of_login_field_options :with => /\A\w[\w\.+\-_]+$/, :message => 'should use only letters, numbers, periods, dashes and underscores please.'
-    c.validates_length_of_login_field_options :minimum => 3, :message => "should be at least 3 characters long please."
-    c.validates_length_of_login_field_options :maximum => 30, :message => "should be no more than 30 characters long please."
+    # the below validation is done in the controller so as to give friendly XML error messages
+    # not the the format reg_exp ha also been changed there, but not here.
+    #c.validates_format_of_login_field_options :with => /\A\w[\w\.+\-_]+$/, :message => 'should use only letters, numbers, periods, dashes and underscores please.'
+    #c.validates_length_of_login_field_options :minimum => 6, :message => "should be at least 3 characters long please."
+    #c.validates_length_of_login_field_options :maximum => 30, :message => "should be no more than 30 characters long please."
   end
   has_many :decks, :dependent => :destroy
   #validates_uniqueness_of :username # already handled by authlogic (I think)
