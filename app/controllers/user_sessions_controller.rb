@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
     if @user_session.save
       render :xml => current_user, :status => :created, :location => current_user
     else
-      @error = {:logon_succeeded => false, :username_password_invalid => true, :description => "Couldn't log you in. Please check your username and password and try again."}
+      @error = {:description => "Couldn't log you in. Please check your username and password and try again."}
       render :template => 'sessions/error.xml.builder'
     end
   end
