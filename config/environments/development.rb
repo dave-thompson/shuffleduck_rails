@@ -14,4 +14,15 @@ config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
+
+# configure action_mailer to use Heroku Sendgrid account
+# may wish to switch to own Sendgrid account in future if cheaper
+config.action_mailer.smtp_settings = {
+  :domain=>"heroku.com",
+  :user_name=>"app114314@heroku.com",
+  :password=>"47242a099674e23f0c",
+  :address=>"smtp.sendgrid.net",
+  :port=>"25",
+  :authentication=>:plain
+} 

@@ -1,0 +1,13 @@
+<% if @user%>
+<h1>Choose a New Password</h1>
+<% form_for @user, :url => password_reset_path, :method => :put do |f| %>
+	  <%= f.error_messages %>
+	  <%= f.label :new_password %><br />
+	  <%= f.password_field :password %><br />
+	  <br />
+	  <%= f.submit "Update Password" %>
+	<% end %>
+<% else %>
+  <h2>Sorry, that link has expired</h2>
+  <p>You can request a new one on the <%= link_to "login page", "/" %></p>
+<% end %>

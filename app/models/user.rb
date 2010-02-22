@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
         record.errors.add 'Age', 'is required (it will help us find cards relevant to you)' if value == 0
   end
   
+  def deliver_password_reset_instructions!  
+    reset_perishable_token!
+    UserMailer.deliver_password_reset_instructions(self)  
+  end
+  
   def add_deck (title, xml_string)
     # create deck
     deck = Deck.new

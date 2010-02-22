@@ -26,3 +26,14 @@ config.action_mailer.delivery_method = :test
 # This is necessary if your schema can't be completely dumped by the schema dumper,
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
+
+# configure action_mailer to use Heroku Sendgrid account
+# may wish to switch to own Sendgrid account in future if cheaper
+config.action_mailer.smtp_settings = {
+  :domain=>"heroku.com",
+  :user_name=>"app114314@heroku.com",
+  :password=>"47242a099674e23f0c",
+  :address=>"smtp.sendgrid.net",
+  :port=>"25",
+  :authentication=>:plain
+}

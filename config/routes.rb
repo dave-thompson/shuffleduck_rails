@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :users
   map.resource :user_session
+  map.resources :password_resets, :only => [ :create, :edit, :update ]
 
   map.resources :decks do |deck|
     deck.resources :deck_details

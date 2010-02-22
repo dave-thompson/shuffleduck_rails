@@ -7,7 +7,7 @@ class DecksController < ApplicationController
       render :template =>'decks/index.xml.builder'
     else
       @error = {:logon_succeeded => false, :description => "Couldn't log you in. Please check your username and password."}
-      render :template => 'errors/error.xml.builder'
+      render :template => 'decks/error.xml.builder'
     end      
   end
 
@@ -20,7 +20,7 @@ class DecksController < ApplicationController
       render :template =>'decks/show.xml.builder'
     else
       @error = {:description => "Couldn't find deck with Deck ID #{params[:id]}."}
-      render :template => 'errors/error.xml.builder'
+      render :template => 'decks/error.xml.builder'
     end
   end
   
