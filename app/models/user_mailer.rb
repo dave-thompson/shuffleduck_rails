@@ -3,8 +3,8 @@ class UserMailer < ActionMailer::Base
   
   def password_reset_instructions(user)
     subject       "Password Reset Request"
-    from          "support@shuffleduck.com"
-    recipients    user.email
+    from          "dave_thompson@mba.berkeley.edu"#"support@shuffleduck.com"
+    recipients    "feedback@shuffleduck.com" #user.email
     sent_on       Time.now
     content_type  "multipart/alternative"
     
