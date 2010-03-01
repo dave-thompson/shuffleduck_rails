@@ -1,10 +1,10 @@
 class UserMailer < ActionMailer::Base
-  default_url_options[:host] = "localhost:3000" #"shuffleduck.heroku.com"
+  default_url_options[:host] = "shuffleduck.heroku.com"
   
   def password_reset_instructions(user)
     subject       "Password Reset Request"
-    from          "dave_thompson@mba.berkeley.edu"#"support@shuffleduck.com"
-    recipients    "feedback@shuffleduck.com" #user.email
+    from          "support@shuffleduck.com"
+    recipients    user.email
     sent_on       Time.now
     content_type  "multipart/alternative"
     
