@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100219155939) do
+ActiveRecord::Schema.define(:version => 20100312174844) do
 
   create_table "deck_details", :force => true do |t|
     t.integer  "deck_id"
@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(:version => 20100219155939) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "deck_details", ["deck_id"], :name => "index_deck_details_on_deck_id", :unique => true
 
   create_table "decks", :force => true do |t|
     t.integer  "user_id"
@@ -28,6 +30,9 @@ ActiveRecord::Schema.define(:version => 20100219155939) do
     t.datetime "updated_at"
     t.integer  "num_cards"
   end
+
+  add_index "decks", ["user_id", "last_saved_date"], :name => "index_decks_on_user_id_and_last_saved_date"
+  add_index "decks", ["user_visible_id"], :name => "index_decks_on_user_visible_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                             :null => false
@@ -48,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20100219155939) do
     t.datetime "updated_at"
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
   add_index "users", ["username"], :name => "index_users_on_username"
 
