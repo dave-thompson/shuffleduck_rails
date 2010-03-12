@@ -31,6 +31,7 @@ class PasswordResetsController < ApplicationController
      @user = User.find_using_perishable_token(params[:id])
      unless @user
        flash[:error] = "We're sorry, but we could not locate your account"
+       render :action => :edit
      end
     end
     

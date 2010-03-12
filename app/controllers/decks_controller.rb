@@ -41,8 +41,6 @@ class DecksController < ApplicationController
     
     if (params[:deck][:title])
       @deck.title = params[:deck][:title]
-    else
-      logger.debug "TITLE NOT FOUND"
     end
 
     if @deck.save
