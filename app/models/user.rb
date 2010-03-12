@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessible :username, :email, :password, :age_at_signup
   acts_as_authentic do |c|
     c.require_password_confirmation = false
     c.validates_format_of_login_field_options :with => /\A[\w\.\-_]*$/, :message => 'may contain only letters, numbers and the symbols . - _'

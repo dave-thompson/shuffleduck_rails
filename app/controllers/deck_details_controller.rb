@@ -12,10 +12,7 @@ class DeckDetailsController < ApplicationController
   # PUT decks/1/deck_details/1.xml
   def update
     @deck_detail.xml_string = params[:deck_detail][:xml_string]
-    logger.debug Time.now
     @deck.last_saved_date = Time.now
-    logger.debug @deck.id
-    logger.debug @deck.last_saved_date
     if save_deck_and_deck_details
       head :ok
     else

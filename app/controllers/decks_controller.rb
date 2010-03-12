@@ -23,24 +23,6 @@ class DecksController < ApplicationController
       render :template => 'decks/error.xml.builder'
     end
   end
-  
-  
-=begin
-  def show
-    if current_user
-      @deck = current_user.decks.find(:first, :conditions => ["user_visible_id = ?", params[:id]]) # the id supplied in the URL is not actually a deck_id, it is really a user_visible_id
-      if @deck
-        render :xml => @deck.to_xml(:dasherize => false)
-      else
-        @error = {:description => "Sorry, you don't have privileges to downlod deck #{params[:id]}"}
-        render :template => 'errors/show.xml.builder'
-      end
-    else
-      @error = {:description => "Couldn't log you in. Please check your username and password."}
-      render :template => 'errors/show.xml.builder'
-    end
-  end
-=end
 
   # POST /decks
   # Create a new deck with the given parameters
