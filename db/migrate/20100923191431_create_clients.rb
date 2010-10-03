@@ -28,5 +28,5 @@ class CreateClients < ActiveRecord::Migration
 end
 
 # data
-# insert into clients (id, name, owner, owner_email, owner_phone, api_key, api_secret) values (1,'Flex App', 'Dave Thompson', 'dave@shuffleduck.com', '+44 7957 174 301', '3000', 'xUoMDKO1iSZPrEC4hY4n')
-# insert into clients (id, name, owner, owner_email, owner_phone, api_key, api_secret) values (2,'iPhone App', 'Dave Thompson', 'dave@shuffleduck.com', '+44 7957 174 301', '3001', 'Hn2Gro0wseeoslZYE3ng')
+# insert into clients (id, name, owner, owner_email, owner_phone, api_key, api_secret) values (1,'Flex App', 'Dave Thompson', 'dave@shuffleduck.com', '+44 7957 174 301', '3000', 'xUoMDKO1iSZPrEC4hY4n');
+# insert into clients (id, name, owner, owner_email, owner_phone, api_key, api_secret) values (2,'iPhone App', 'Dave Thompson', 'dave@shuffleduck.com', '+44 7957 174 301', '3001', 'Hn2Gro0wseeoslZYE3ng');
