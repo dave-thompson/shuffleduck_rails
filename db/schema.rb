@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100316152023) do
+ActiveRecord::Schema.define(:version => 20100923191431) do
+
+  create_table "clients", :force => true do |t|
+    t.string   "name"
+    t.string   "owner"
+    t.string   "owner_email"
+    t.string   "owner_phone"
+    t.string   "api_key",            :null => false
+    t.string   "api_secret",         :null => false
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "perishable_token"
+    t.integer  "failed_login_count"
+    t.datetime "last_request_at"
+    t.integer  "request_count"
+    t.string   "last_request_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "deck_details", :force => true do |t|
     t.integer  "deck_id"
@@ -31,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20100316152023) do
     t.integer  "num_cards"
   end
 
-  add_index "decks", ["last_saved_date", "user_id"], :name => "index_decks_on_user_id_and_last_saved_date"
+  add_index "decks", ["user_id", "last_saved_date"], :name => "index_decks_on_user_id_and_last_saved_date"
   add_index "decks", ["user_visible_id"], :name => "index_decks_on_user_visible_id", :unique => true
 
   create_table "users", :force => true do |t|
