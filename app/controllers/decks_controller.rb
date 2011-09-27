@@ -29,7 +29,7 @@ class DecksController < ApplicationController
   def create
     @deck = current_user.add_deck params[:deck][:title], params[:deck][:xml_string]
     # we should check deck and deck.deck_detail for errors really here, rather than just sending back the new deck
-    render :xml => @deck.to_xml(:dasherize => false), :status => :created, :location => @deck
+    render :xml => @deck.to_xml(:dasherize => false), :status => :ok, :location => @deck
   end
 
   # PUT /decks/1

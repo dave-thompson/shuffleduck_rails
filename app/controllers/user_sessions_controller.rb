@@ -5,7 +5,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      render :xml => current_user, :status => :created, :location => current_user
+      render :xml => current_user, :status => :ok, :location => current_user
     else
       @error = {:description => "Couldn't log you in. Please check your username and password and try again."}
       render :template => 'sessions/error.xml.builder'
@@ -14,7 +14,7 @@ class UserSessionsController < ApplicationController
   
   def show
     if current_user_session
-      render :xml => current_user, :status => :created, :location => current_user
+      render :xml => current_user, :status => :ok, :location => current_user
     else
       head :ok
     end
