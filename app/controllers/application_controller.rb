@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  before_filter :verify_client
+  before_filter :verify_client, :set_cache_buster
   filter_parameter_logging :password
   
   private
@@ -37,6 +37,13 @@ class ApplicationController < ActionController::Base
         @error = {:description => "Couldn't validate client application - please contact us at support@shuffleduck.com."}
         render :template => 'errors/error.xml.builder'
       end
+    end
+
+    # these headers are sent with every response and prevent browsers (especially IE) from caching results
+    def set_cache_buster
+      response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+      response.headers["Pragma"] = "no-cache"
+      response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
     end
 
 end
