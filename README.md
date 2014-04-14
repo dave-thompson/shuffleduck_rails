@@ -8,7 +8,7 @@ SHUFFLEDUCK was a flashcard-based education platform.  It comprised:
 
 ##This Repository
 
-This repository contains the Flash / Actionscript component.
+This repository contains the Ruby on Rails component.
 
 ##Licensing
 
